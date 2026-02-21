@@ -90,7 +90,7 @@
             }
             return await route.callback(this.request, this.response);
           }
-          return this.response.send({ status: 0, message: "Method not found!" }, 404);
+          return this.response.send({ status: 0, message: "What, are you lost or something? (method not found)" }, 404);
         }
         get(url, callback) {
           this.routes.push({
@@ -222,7 +222,7 @@
   addEventListener("fetch", (event) => {
     event.respondWith(app.handleRequest(event.request));
   });
-  app.get("/api/get-fact", async (req, res) => {
+  app.get("/api/crowfact/v1/getfact", async (req, res) => {
     return res.send(getRandomFact());
   });
 })();
